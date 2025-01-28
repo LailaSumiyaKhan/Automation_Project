@@ -1,4 +1,4 @@
-class LoginObjects {
+class LockedOutLoginObjects {
    get userName() {
       return $("//input[@placeholder='Username']");
    }
@@ -14,4 +14,4 @@ class LoginObjects {
       );
    }
 }
-module.exports = new LoginObjects();
+module.exports = new LockedOutLoginObjects();
