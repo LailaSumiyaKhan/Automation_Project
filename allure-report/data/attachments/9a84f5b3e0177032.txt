@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//a[@id='reset_sidebar_link']"
+}

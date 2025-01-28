@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"1b805c554f3f293362ed8379cc91427e","name":"Locked_out_user Login application","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":2,"items":[{"uid":"607cc7853c047fd706ba6da82a952056","name":"Standard user product purchase journey","statistic":{"failed":2,"broken":1,"skipped":0,"passed":5,"unknown":0,"total":8}},{"uid":"1b805c554f3f293362ed8379cc91427e","name":"Locked_out_user Login application","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
