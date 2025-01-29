@@ -103,7 +103,7 @@ describe("Standard user product purchase journey", () => {
       chaiExpect(actualPrice).to.equal(expectedPrice);
       await overviewActions.clickOnFinishBtn();
    });
-   it("Verify Successful Order Message", async () => {
+   it("verify successful order Message", async () => {
       await expect(completeOrderObjects.successfulOrderMsg).toBeExisting();
       await expect(completeOrderObjects.successfulOrderMsg).toHaveText(
          expect.stringContaining("Thank you for your order!")
