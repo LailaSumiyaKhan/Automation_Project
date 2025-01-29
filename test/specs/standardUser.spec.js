@@ -4,6 +4,7 @@ const cartActions = require("../pages/cart/cartActions");
 const checkoutActions = require("../pages/checkout/checkoutActions");
 const overviewActions = require("../pages/overview/overviewActions");
 const completeOrderActions = require("../pages/completeOrder/completeOrderActions");
+const completeOrderObjects = require("../pages/completeOrder/completeOrderObjects");
 const chaiExpect = require("chai").expect;
 let sauceLabsBackpackExpectedName = "";
 let sauceLabsBikeLightExpectedName = "";
@@ -103,10 +104,26 @@ describe("Standard user product purchase journey", () => {
       await overviewActions.clickOnFinishBtn();
    });
    it("Verify Successful Order Message", async () => {
-      const completeOrderMessage =
-         await completeOrderActions.getCompleteOrderMessage();
-      await expect(completeOrderMessage).toBeExisting();
-      await expect(completeOrderMessage).toHaveText();
-      expect.stringContaining("Thank you for your order!");
+      await expect(completeOrderObjects.successfulOrderMsg).toBeExisting();
+      await expect(completeOrderObjects.successfulOrderMsg).toHaveText(
+         expect.stringContaining("Thank you for your order!")
+      );
+      await completeOrderActions.clickHamburgerMenu();
+      await completeOrderActions.clickOnResetAppState();
+   });
+   it("should reset app state again", async () => {
+      const currentUrl = await browser.getUrl();
+      // console.log(currentUrl);
+      await completeOrderActions.clickOnResetAppState();
+      const newUrl = await browser.getUrl();
+      // console.log(newUrl);
+      await productActions.clickOnCloseBtn();
+      chaiExpect(currentUrl).to.not.equal(newUrl);
+   });
+   it("should logout", async () => {
+      await completeOrderActions.clickHamburgerMenu();
+      await browser.pause(3000);
+      await completeOrderActions.clickOnLogoutBtn();
+      await browser.pause(3000);
    });
 });

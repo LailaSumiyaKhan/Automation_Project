@@ -2,20 +2,15 @@ const productObjects = require("./productObjects");
 const utilities = require("../../utility/utilities");
 class ProductActions {
    async clickHamburgerMenu() {
-      // await productObjects.hamburgerMenu.scrollIntoView();
-      // await productObjects.hamburgerMenu.waitForClickable({ timeout: 5000 });
-      // const isHamburgerMenuPresent =
-      // await productObjects.hamburgerMenu.isExisting();
-      // console.log(`Is Hamburger Menu Present: ${isHamburgerMenuPresent}`);
       await productObjects.hamburgerMenu.click();
    }
    async clickOnResetAppState() {
       await productObjects.resetApp.click();
-      await browser.pause(3000);
+      await browser.pause(1000);
    }
    async clickOnCloseBtn() {
       await productObjects.closeBtn.click();
-      await browser.pause(3000);
+      await browser.pause(2000);
    }
    async clickOnSauceLabsBackpackAddToCartBtn() {
       await productObjects.sauceLabsBackpackAddToCartBtn.click();
