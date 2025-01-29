@@ -1,12 +1,15 @@
 class CheckoutObjects {
-   get sauceLabsBackpackName() {
-      return $("//div[contains(text(),'Sauce Labs Backpack')]");
+   get firstName() {
+      return $("//input[@placeholder='First Name']");
    }
-   get sauceLabsBikeLightName() {
-      return $("//div[contains(text(),'Sauce Labs Bike Light')]");
+   get lastName() {
+      return $("//input[@placeholder='Last Name']");
    }
-   get sauceLabsOnesieName() {
-      return $("//div[contains(text(),'Sauce Labs Onesie')]");
+   get postalCode() {
+      return $("//input[@placeholder='Zip/Postal Code']");
+   }
+   get continueButton() {
+      return $("//input[@id='continue']");
    }
 }
 module.exports = new CheckoutObjects();

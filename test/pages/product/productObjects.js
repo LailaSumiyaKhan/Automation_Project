@@ -32,5 +32,14 @@ class ProductObjects {
    get sauceLabsOnesieExpectedName() {
       return $("//div[contains(text(),'Sauce Labs Onesie')]");
    }
+   get sauceLabsBackpackExpectedPrice() {
+      return $("(//div[@class='inventory_item_price'])[1]");
+   }
+   get sauceLabsbikelightExpectedPrice() {
+      return $("(//div[@class='inventory_item_price'])[2]");
+   }
+   get sauceLabsOnesieExpectedPrice() {
+      return $("(//div[@class='inventory_item_price'])[5]");
+   }
 }
 module.exports = new ProductObjects();

@@ -1,4 +1,5 @@
 const productObjects = require("./productObjects");
+const utilities = require("../../utility/utilities");
 class ProductActions {
    async clickHamburgerMenu() {
       // await productObjects.hamburgerMenu.scrollIntoView();
@@ -36,6 +37,22 @@ class ProductActions {
    }
    async getSauceLabsOnesieExpectedName() {
       return await productObjects.sauceLabsOnesieExpectedName.getText();
+   }
+   async getSauceLabsBackpackExpectedPrice() {
+      const sauceLabsBackpackExpectedPrice =
+         await productObjects.sauceLabsBackpackExpectedPrice.getText();
+      return utilities.textToNumber(sauceLabsBackpackExpectedPrice);
+   }
+
+   async getSauceLabsbikelightExpectedPrice() {
+      const sauceLabsbikelightExpectedPrice =
+         await productObjects.sauceLabsbikelightExpectedPrice.getText();
+      return utilities.textToNumber(sauceLabsbikelightExpectedPrice);
+   }
+   async getSauceLabsOnesieExpectedPrice() {
+      const sauceLabsOnesieExpectedPrice =
+         await productObjects.sauceLabsOnesieExpectedPrice.getText();
+      return utilities.textToNumber(sauceLabsOnesieExpectedPrice);
    }
 }
 module.exports = new ProductActions();

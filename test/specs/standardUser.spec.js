@@ -1,10 +1,16 @@
 const standardUserLoginActions = require("../pages/standardUserLogin/standardUserLoginActions");
 const productActions = require("../pages/product/productActions");
+const cartActions = require("../pages/cart/cartActions");
 const checkoutActions = require("../pages/checkout/checkoutActions");
+const overviewActions = require("../pages/overview/overviewActions");
+const completeOrderActions = require("../pages/completeOrder/completeOrderActions");
 const chaiExpect = require("chai").expect;
 let sauceLabsBackpackExpectedName = "";
 let sauceLabsBikeLightExpectedName = "";
 let sauceLabsOnesieExpectedName = "";
+let sauceLabsBackpackExpectedPrice = "";
+let sauceLabsBikeLightExpectedPrice = "";
+let sauceLabsOnesieExpectedPrice = "";
 describe("Standard user product purchase journey", () => {
    it("should login with valid credentials ", async () => {
       await standardUserLoginActions.login();
@@ -28,6 +34,12 @@ describe("Standard user product purchase journey", () => {
          await productActions.getSauceLabsbikelightExpectedName();
       sauceLabsOnesieExpectedName =
          await productActions.getSauceLabsOnesieExpectedName();
+      sauceLabsBackpackExpectedPrice =
+         await productActions.getSauceLabsBackpackExpectedPrice();
+      sauceLabsBikeLightExpectedPrice =
+         await productActions.getSauceLabsbikelightExpectedPrice();
+      sauceLabsOnesieExpectedPrice =
+         await productActions.getSauceLabsOnesieExpectedPrice();
       await productActions.clickOnSauceLabsBackpackAddToCartBtn();
       await browser.pause(2000);
       await productActions.clickOnSauceLabsbikelightAddToCartBtn();
@@ -39,11 +51,11 @@ describe("Standard user product purchase journey", () => {
    });
    it("verify product's name", async () => {
       const actualSauceLabsBackpackName =
-         await checkoutActions.getSauceLabsBackpackName();
+         await cartActions.getSauceLabsBackpackName();
       const actualSauceLabsBikeLightName =
-         await checkoutActions.getsauceLabsBikeLightName();
+         await cartActions.getsauceLabsBikeLightName();
       const actualSauceLabsOnesieName =
-         await checkoutActions.getsauceLabsOnesieName();
+         await cartActions.getsauceLabsOnesieName();
       chaiExpect(sauceLabsBackpackExpectedName).to.include(
          actualSauceLabsBackpackName
       );
@@ -53,5 +65,48 @@ describe("Standard user product purchase journey", () => {
       chaiExpect(sauceLabsOnesieExpectedName).to.include(
          actualSauceLabsOnesieName
       );
+   });
+   it("verify product's price", async () => {
+      const actualSauceLabsBackpackName =
+         await cartActions.getSauceLabsBackpackName();
+      const actualSauceLabsBikeLightName =
+         await cartActions.getsauceLabsBikeLightName();
+      const actualSauceLabsOnesieName =
+         await cartActions.getsauceLabsOnesieName();
+      chaiExpect(sauceLabsBackpackExpectedName).to.include(
+         actualSauceLabsBackpackName
+      );
+      chaiExpect(sauceLabsBikeLightExpectedName).to.include(
+         actualSauceLabsBikeLightName
+      );
+      chaiExpect(sauceLabsOnesieExpectedName).to.include(
+         actualSauceLabsOnesieName
+      );
+      await cartActions.clickOnCheckoutBtn();
+      await browser.pause(2000);
+   });
+   it('should navigate to "Your Information" page', async () => {
+      await checkoutActions.getYourInformation();
+   });
+   it("Verify total price", async () => {
+      const actualPrice = await overviewActions.getActualTotalPrice();
+      // console.log(actualPrice);
+      let tax = await overviewActions.getTax();
+      // console.log(tax);
+      const expectedPrice =
+         sauceLabsBackpackExpectedPrice +
+         sauceLabsBikeLightExpectedPrice +
+         sauceLabsOnesieExpectedPrice +
+         tax;
+      // console.log(expectedPrice);
+      chaiExpect(actualPrice).to.equal(expectedPrice);
+      await overviewActions.clickOnFinishBtn();
+   });
+   it("Verify Successful Order Message", async () => {
+      const completeOrderMessage =
+         await completeOrderActions.getCompleteOrderMessage();
+      await expect(completeOrderMessage).toBeExisting();
+      await expect(completeOrderMessage).toHaveText();
+      expect.stringContaining("Thank you for your order!");
    });
 });
