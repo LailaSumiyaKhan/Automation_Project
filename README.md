@@ -48,8 +48,6 @@ project-root/
 
    -  The `wdio.conf.js` file should contain the necessary test settings.
 
-## Running Tests
-
 ## Running Tests Separately and Sequentially
 
 Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
