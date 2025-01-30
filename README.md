@@ -50,11 +50,11 @@ project-root/
 
 ## Running Tests
 
-### Running Tests Separately and Sequentially
+## Running Tests Separately and Sequentially
 
-## Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
+### Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
 
-## Sequential Execution: Uncomment the spec section in wdio.conf.js to enable all test files, then run WebdriverIO normally to execute tests in sequence.
+### Sequential Execution: Uncomment the spec section in wdio.conf.js to enable all test files, then run WebdriverIO normally to execute tests in sequence.
 
 ### **Running Tests Sequentially (By Spec File)**
 
@@ -88,7 +88,8 @@ npm run testThree
 
 ## Test Reports
 
-Allure Reporting with Screenshots
+### Allure Reporting with Screenshots:
+
 This project integrates Allure Report for test execution analysis.
 Screenshots are automatically captured for failed test cases.
 To generate and view the Allure report after execution, run:
@@ -100,5 +101,3 @@ npm run getReport
 ## Conclusion
 
 This project provides automated test coverage for different user types in a structured manner. WebdriverIO, Chai assertions, and the Page Object Model ensure scalable and maintainable test cases.
-
-For any issues or improvements, feel free to contribute or raise a request!
