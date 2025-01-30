@@ -1,3 +1,6 @@
+const testOne = "./test/specs/lockedOutLogin.spec.js";
+const testTwo = "./test/specs/performanceGlitchUser.spec.js";
+const testThree = "./test/specs/standardUser.spec.js";
 exports.config = {
    //
    // ====================
@@ -20,7 +23,12 @@ exports.config = {
    // The path of the spec files will be resolved relative from the directory of
    // of the config file unless it's absolute.
    //
-   specs: ["./test/specs/standardUser.spec.js"],
+   specs: ["./test/specs/**/*.js"],
+   suites: {
+      lockedOutUser: [testOne],
+      performanceGlitchUser: [testTwo],
+      standardUser: [testThree],
+   },
    // Patterns to exclude.
    exclude: [
       // 'path/to/excluded/files'
@@ -41,7 +49,7 @@ exports.config = {
    // and 30 processes will get spawned. The property handles how many capabilities
    // from the same test should run tests.
    //
-   maxInstances: 10,
+   maxInstances: 1,
    //
    // If you have trouble getting all important capabilities together, check out the
    // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -129,7 +137,7 @@ exports.config = {
          {
             outputDir: "allure-results",
             disableWebdriverStepsReporting: false,
-            // disableWebdriverScreenshotsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
          },
       ],
    ],
@@ -237,8 +245,20 @@ exports.config = {
     * @param {boolean} result.passed    true if test has passed, otherwise false
     * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
     */
-   // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-   // },
+   afterTest: async function (
+      test,
+      context,
+      { error, result, duration, passed, retries }
+   ) {
+      if (error) {
+         const screetshot = await browser.takeScreenshot();
+         allure.addAttchment(
+            "Screenshot",
+            Buffer.from(screetshot, "base64"),
+            "failure/png"
+         );
+      }
+   },
 
    /**
     * Hook that gets executed after the suite has ended

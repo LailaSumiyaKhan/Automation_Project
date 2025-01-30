@@ -4,7 +4,9 @@
    "description": "webdriverio pom framework",
    "main": "index.js",
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
+      "testOne": "wdio run ./wdio.conf.js --suite lockedOutUser",
+      "testTwo": "wdio run ./wdio.conf.js --suite standardUser",
+      "testThree": "wdio run ./wdio.conf.js --suite performanceGlitchUser",
       "wdio": "wdio run ./wdio.conf.js",
       "getReport": "allure generate allure-results --clean && allure open"
    },
