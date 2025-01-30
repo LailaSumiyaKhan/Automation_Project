@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project automates end-to-end testing for three different user journeys using WebdriverIO. Each journey has a separate test suite that can be executed individually or sequentially.
+This project is an automated test suite using WebdriverIO for testing different user journeys on a web application. It includes test scenarios for Locked Out User, Performance Glitch User, and Standard User. The tests validate login functionality, product selection, product name and total price verification, cart operations, checkout, and order completion.
 
 ## Project Structure
 
@@ -17,13 +17,16 @@ project-root/
 │   ├── checkout/
 │   ├── overview/
 │   ├── completeOrder/
+│   ├── performanceUserProduct/
+│   ├── performanceUserProductDetail/
+│   ├── performanceUserCart/
 ├── test/
-│   ├── lockedOutUser.spec.js       # Locked out user test cases
-│   ├── performanceUser.spec.js     # Performance glitch user test cases
-│   ├── standardUser.spec.js        # Standard user test cases
-├── wdio.conf.js                    # WebdriverIO configuration file
-├── package.json                    # Project dependencies and scripts
-├── README.md                        # Project documentation
+│   ├── lockedOutLogin.spec.js          # Locked out user test cases
+│   ├── performanceGlitchUser.spec.js   # Performance glitch user test
+│   ├── standardUser.spec.js            # Standard user test cases
+├── wdio.conf.js                        # WebdriverIO configuration file
+├── package.json                        # Project dependencies and scripts
+├── README.md                           # Project documentation
 ```
 
 ## Installation & Setup
@@ -43,26 +46,22 @@ project-root/
 
 3. **Ensure WebdriverIO is properly configured:**
 
-   - The `wdio.conf.js` file should contain the necessary test settings.
+   -  The `wdio.conf.js` file should contain the necessary test settings.
 
 ## Running Tests
 
-### **Running Individual Test Suites**
+### Running Tests Separately and Sequentially
 
-To run a specific test suite, use the following commands:
+## Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
 
-```sh
-wdio wdio.conf.js --suite lockedOutUser
-wdio wdio.conf.js --suite performanceGlitchUser
-wdio wdio.conf.js --suite standardUser
-```
+## Sequential Execution: Uncomment the spec section in wdio.conf.js to enable all test files, then run WebdriverIO normally to execute tests in sequence.
 
 ### **Running Tests Sequentially (By Spec File)**
 
 To execute all test journeys sequentially, use the following script:
 
 ```sh
-npm run test:sequential
+npm run wdio
 ```
 
 ### \*\*Creating Suite Scripts in \*\***`package.json`**
@@ -71,26 +70,31 @@ Modify the `scripts` section of `package.json` to add test execution commands:
 
 ```json
 "scripts": {
-    "test:lockedOutUser": "wdio wdio.conf.js --suite lockedOutUser",
-    "test:performanceGlitchUser": "wdio wdio.conf.js --suite performanceGlitchUser",
-    "test:standardUser": "wdio wdio.conf.js --suite standardUser",
-    "test:sequential": "npm run test:lockedOutUser && npm run test:performanceGlitchUser && npm run test:standardUser"
+     "testOne": "wdio run ./wdio.conf.js --suite lockedOutUser",
+     "testTwo": "wdio run ./wdio.conf.js --suite standardUser",
+     "testThree": "wdio run ./wdio.conf.js --suite performanceGlitchUser",
 }
 ```
 
-Run all tests sequentially:
+### **Running Seperate Test Suites**
+
+To run a specific test suite, use the following commands:
 
 ```sh
-npm run test:sequential
+npm run testOne
+npm run testTwo
+npm run testThree
 ```
 
 ## Test Reports
 
-After execution, test results can be viewed in the WebdriverIO test report logs. To generate and view reports, use:
+Allure Reporting with Screenshots
+This project integrates Allure Report for test execution analysis.
+Screenshots are automatically captured for failed test cases.
+To generate and view the Allure report after execution, run:
 
 ```sh
-npm run allure:generate
-npm run allure:open
+npm run getReport
 ```
 
 ## Conclusion
@@ -98,4 +102,3 @@ npm run allure:open
 This project provides automated test coverage for different user types in a structured manner. WebdriverIO, Chai assertions, and the Page Object Model ensure scalable and maintainable test cases.
 
 For any issues or improvements, feel free to contribute or raise a request!
-
