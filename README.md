@@ -1,4 +1,4 @@
-# WebdriverIO Test Automation Project
+# WebdriverIO Automation Project
 
 ## Overview
 
@@ -52,9 +52,9 @@ project-root/
 
 ## Running Tests Separately and Sequentially
 
-### Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
+Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
 
-### Sequential Execution: Uncomment the spec section in wdio.conf.js to enable all test files, then run WebdriverIO normally to execute tests in sequence.
+Sequential Execution: Uncomment the spec section in wdio.conf.js to enable all test files, then run WebdriverIO normally to execute tests in sequence.
 
 ### **Running Tests Sequentially (By Spec File)**
 
