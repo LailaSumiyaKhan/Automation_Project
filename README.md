@@ -98,7 +98,7 @@ npm run testThree
 ### Allure Reporting :
 
 This project integrates Allure Report for test execution analysis.
-Screenshots are automatically captured for if have any failed test cases.
+Screenshots are automatically captured for failed test cases.
 To generate and view the Allure report after execution, run:
 
 ```sh
