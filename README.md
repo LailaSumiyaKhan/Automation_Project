@@ -4,6 +4,12 @@
 
 This project is an automated test suite using WebdriverIO for testing different user journeys on a web application. It includes test scenarios for Locked Out User, Performance Glitch User, and Standard User. The tests validate login functionality, product selection, product name and total price verification, cart operations, checkout, and order completion.
 
+### Project Preview
+
+1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
+2. **Separate Execution** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
+3. **Sequential Execution**- [![Video Title](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/l50rHUZuP0U)
+
 ## Project Structure
 
 ```
@@ -47,11 +53,6 @@ project-root/
 3. **Ensure WebdriverIO is properly configured:**
 
    -  The `wdio.conf.js` file should contain the necessary test settings.
-
-### Run Modes
-
-1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
-2. **Separate Execution** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
 
 ## Running Tests Separately and Sequentially
 
