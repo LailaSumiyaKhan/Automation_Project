@@ -51,7 +51,7 @@ project-root/
 ### Run Modes
 
 1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
-2. **Separate Run** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
+2. **Separate Execution** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
 
 ## Running Tests Separately and Sequentially
 
