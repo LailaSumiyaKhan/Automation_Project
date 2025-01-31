@@ -6,8 +6,8 @@ This project is an automated test suite using WebdriverIO for testing different 
 
 ### Project Preview
 
-1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
-2. **Separate Execution** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
+1. **Sequential Execution** - [Watch the video](https://youtu.be/PzsOWgdY9BQ)
+2. **Separate Execution** - [Watch the video](https://youtu.be/lmNQ1vPYerg)
 
 ## Project Structure
 
@@ -95,10 +95,10 @@ npm run testThree
 
 ## Test Reports
 
-### Allure Reporting with Screenshots:
+### Allure Reporting :
 
 This project integrates Allure Report for test execution analysis.
-Screenshots are automatically captured for failed test cases.
+Screenshots are automatically captured for if have any failed test cases.
 To generate and view the Allure report after execution, run:
 
 ```sh
