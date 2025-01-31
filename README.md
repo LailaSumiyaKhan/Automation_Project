@@ -48,6 +48,11 @@ project-root/
 
    -  The `wdio.conf.js` file should contain the necessary test settings.
 
+### Run Modes
+
+1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
+2. **Separate Run** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
+
 ## Running Tests Separately and Sequentially
 
 Separate Execution: Suites are defined in wdio.conf.js, and scripts for each suite are declared in package.json. To run tests separately, comment out the spec section in wdio.conf.js and execute the test script from package.json.
@@ -95,11 +100,6 @@ To generate and view the Allure report after execution, run:
 ```sh
 npm run getReport
 ```
-
-### Run Modes
-
-1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
-2. **Separate Run** - [Watch the video](https://www.youtube.com/watch?v=YOUR_SEPARATE_VIDEO_ID)
 
 ## Conclusion
 
