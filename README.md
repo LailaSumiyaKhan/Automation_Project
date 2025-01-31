@@ -96,6 +96,11 @@ To generate and view the Allure report after execution, run:
 npm run getReport
 ```
 
+### Run Modes
+
+1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
+2. **Separate Run** - [Watch the video](https://www.youtube.com/watch?v=YOUR_SEPARATE_VIDEO_ID)
+
 ## Conclusion
 
 This project provides automated test coverage for different user types in a structured manner. WebdriverIO, Chai assertions, and the Page Object Model ensure scalable and maintainable test cases.
