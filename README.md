@@ -8,7 +8,6 @@ This project is an automated test suite using WebdriverIO for testing different 
 
 1. **Sequential Execution** - [Watch the video](https://youtu.be/l50rHUZuP0U)
 2. **Separate Execution** - [Watch the video](https://youtu.be/eKHUfO5Qjik)
-3. **Sequential Execution**- [![Video Title](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/l50rHUZuP0U)
 
 ## Project Structure
 
